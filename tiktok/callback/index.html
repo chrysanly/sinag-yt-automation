@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Returning to Sinag YTAutomation</title>
+<link rel="icon" href="../../sinag.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../style.css">
+<script>
+  // TikTok sends the sign-in result here (https). Hand it to the Sinag YTAutomation
+  // app running on this computer. The target is fixed: this page never forwards anywhere else.
+  (function () {
+    var target = 'http://127.0.0.1:47380/tiktok/callback/' + window.location.search;
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('go').href = target;
+    });
+    window.location.replace(target);
+  })();
+</script>
+</head>
+<body>
+<main>
+  <h1>Returning to the app…</h1>
+  <p>Sign-in finished. Sending you back to Sinag YTAutomation on this computer.</p>
+  <p>If nothing happens, make sure the app is open, then <a id="go" href="http://127.0.0.1:47380/">continue here</a>.</p>
+</main>
+</body>
+</html>
